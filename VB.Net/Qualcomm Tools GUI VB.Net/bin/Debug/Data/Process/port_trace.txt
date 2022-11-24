@@ -1,0 +1,173 @@
+
+06:49:39: INFO: FH_LOADER WAS CALLED EXACTLY LIKE THIS
+************************************************
+C:\Users\email\source\repos\Qualcomm Tools GUI\Qualcomm Tools GUI\bin\Debug\Data\Process\fh_loader.exe --port=\\.\COM4 --sendxml=C:\Users\email\source\repos\Qualcomm Tools GUI\Qualcomm Tools GUI\bin\Debug\Data\Process\Reboot.xml --noprompt --loglevel=2 --showpercentagecomplete --zlpawarehost=1 
+************************************************
+
+06:49:39: DEBUG: Binary build date: Jun 25 2019 @ 03:16:10
+
+06:49:39: DEBUG: Build Version: 19.06.25.03.16.10
+
+06:49:39: INFO: Current working dir (cwd): C:\Users\email\source\repos\Qualcomm Tools GUI\Qualcomm Tools GUI\bin\Debug\Data\Process\
+06:49:39: INFO: Showing network mappings to allow debugging
+06:49:39: DEBUG: New connections will be remembered.
+
+06:49:39: DEBUG: 
+
+06:49:39: DEBUG: There are no entries in the list.
+
+06:49:39: DEBUG: 
+
+06:49:39: INFO: 
+
+
+
+06:49:39: INFO: Trying to store 'C:\Users\email\source\repos\Qualcomm Tools GUI\Qualcomm Tools GUI\bin\Debug\Data\Process\Reboot.xml' in string table
+06:49:39: DEBUG: ==================================================================================
+06:49:39: DEBUG: ==================================================================================
+06:49:39: INFO: Looking for file 'C:\Users\email\source\repos\Qualcomm Tools GUI\Qualcomm Tools GUI\bin\Debug\Data\Process\Reboot.xml'
+06:49:39: DEBUG: 2. Calling fopen('C:\Users\email\source\repos\Qualcomm Tools GUI\Qualcomm Tools GUI\bin\Debug\Data\Process\Reboot.xml') with AccessMode='rb'
+06:49:39: DEBUG: Trying get filesize, calling fseek()
+06:49:39: DEBUG: Found 'C:\Users\email\source\repos\Qualcomm Tools GUI\Qualcomm Tools GUI\bin\Debug\Data\Process\Reboot.xml' (63 bytes)
+06:49:39: DEBUG: 2. Calling fopen('C:\Users\email\source\repos\Qualcomm Tools GUI\Qualcomm Tools GUI\bin\Debug\Data\Process\Reboot.xml') with AccessMode='r'
+06:49:39: DEBUG: Trying get filesize, calling fseek()
+06:49:39: INFO: User requested *verbose* logging with --loglevel=2
+06:49:39: DEBUG: User set ZLPAWAREHOST to 1
+
+06:49:39: INFO: User wants to talk to port '\\.\COM4'
+06:49:39: DEBUG: port_fd=0x104
+
+06:49:39: INFO: Took       0.00000000 seconds to open port
+06:49:39: DEBUG: 2. Calling fopen('command_trace.txt') with AccessMode='w'
+06:49:39: INFO: Sorting TAGS to ensure order is <configure>,<erase>, others, <patch>,<power>
+06:49:39: INFO: Sending <configure>
+06:49:39: DEBUG: CHANNEL DATA (P0000) (H00202) (    228 bytes) - HOST TO TARGET -->
+===========================================================================================================
+<?xml version="1.0" encoding="UTF-8" ?>
+<data>
+<configure MemoryName="eMMC" Verbose="0" AlwaysValidate="0" MaxDigestTableSizeInBytes="8192" MaxPayloadSizeToTargetInBytes="1048576" ZlpAwareHost="1" SkipStorageInit="0" />
+</data>
+
+============================================================================================================
+
+06:49:39: DEBUG: printBuffer:6017 PRETTYPRINT Buffer is 228 bytes
+
+06:49:39: DEBUG: printBuffer:6094 3C 3F 78 6D 6C 20 76 65 72 73 69 6F 6E 3D 22 31 <?xml version="1
+06:49:39: DEBUG: printBuffer:6094 2E 30 22 20 65 6E 63 6F 64 69 6E 67 3D 22 55 54 .0" encoding="UT
+06:49:39: DEBUG: printBuffer:6094 46 2D 38 22 20 3F 3E 0A 3C 64 61 74 61 3E 0A 3C F-8" ?>.<data>.<
+06:49:39: DEBUG: printBuffer:6094 63 6F 6E 66 69 67 75 72 65 20 4D 65 6D 6F 72 79 configure Memory
+06:49:39: DEBUG: printBuffer:6094 4E 61 6D 65 3D 22 65 4D 4D 43 22 20 56 65 72 62 Name="eMMC" Verb
+06:49:39: DEBUG: printBuffer:6094 6F 73 65 3D 22 30 22 20 41 6C 77 61 79 73 56 61 ose="0" AlwaysVa
+06:49:39: DEBUG: printBuffer:6094 6C 69 64 61 74 65 3D 22 30 22 20 4D 61 78 44 69 lidate="0" MaxDi
+06:49:39: DEBUG: printBuffer:6094 67 65 73 74 54 61 62 6C 65 53 69 7A 65 49 6E 42 gestTableSizeInB
+06:49:39: DEBUG: printBuffer:6094 79 74 65 73 3D 22 38 31 39 32 22 20 4D 61 78 50 ytes="8192" MaxP
+06:49:39: DEBUG: printBuffer:6094 61 79 6C 6F 61 64 53 69 7A 65 54 6F 54 61 72 67 ayloadSizeToTarg
+06:49:39: DEBUG: printBuffer:6094 65 74 49 6E 42 79 74 65 73 3D 22 31 30 34 38 35 etInBytes="10485
+06:49:39: DEBUG: printBuffer:6094 37 36 22 20 5A 6C 70 41 77 61 72 65 48 6F 73 74 76" ZlpAwareHost
+06:49:39: DEBUG: printBuffer:6094 3D 22 31 22 20 53 6B 69 70 53 74 6F 72 61 67 65 ="1" SkipStorage
+06:49:39: DEBUG: printBuffer:6094 49 6E 69 74 3D 22 30 22 20 2F 3E 0A 3C 2F 64 61 Init="0" />.</da
+06:49:39: DEBUG: printBuffer:6094 74 61 3E 0A                                     ta>.
+06:49:39: DEBUG: printBuffer:6107 
+
+
+06:49:39: DEBUG: CharsInBuffer=0 Trying to read from USB 8192 bytes
+06:49:39: DEBUG: CHANNEL DATA (400 bytes) <-- TARGET to HOST
+06:49:39: DEBUG: CharsInBuffer = 400
+06:49:39: DEBUG: printBuffer:6017 PRETTYPRINT Buffer is 400 bytes
+
+06:49:39: DEBUG: printBuffer:6094 3C 3F 78 6D 6C 20 76 65 72 73 69 6F 6E 3D 22 31 <?xml version="1
+06:49:39: DEBUG: printBuffer:6094 2E 30 22 20 65 6E 63 6F 64 69 6E 67 3D 22 55 54 .0" encoding="UT
+06:49:39: DEBUG: printBuffer:6094 46 2D 38 22 20 3F 3E 3C 64 61 74 61 3E 3C 6C 6F F-8" ?><data><lo
+06:49:39: DEBUG: printBuffer:6094 67 20 76 61 6C 75 65 3D 22 6C 6F 67 62 75 66 40 g value="logbuf@
+06:49:39: DEBUG: printBuffer:6094 30 78 30 38 30 36 46 45 34 38 20 66 68 40 30 78 0x0806FE48 fh@0x
+06:49:39: DEBUG: printBuffer:6094 30 38 30 36 43 43 42 30 22 20 2F 3E 3C 2F 64 61 0806CCB0" /></da
+06:49:39: DEBUG: printBuffer:6094 74 61 3E 3C 3F 78 6D 6C 20 76 65 72 73 69 6F 6E ta><?xml version
+06:49:39: DEBUG: printBuffer:6094 3D 22 31 2E 30 22 20 65 6E 63 6F 64 69 6E 67 3D ="1.0" encoding=
+06:49:39: DEBUG: printBuffer:6094 22 55 54 46 2D 38 22 20 3F 3E 3C 64 61 74 61 3E "UTF-8" ?><data>
+06:49:39: DEBUG: printBuffer:6094 3C 72 65 73 70 6F 6E 73 65 20 76 61 6C 75 65 3D <response value=
+06:49:39: DEBUG: printBuffer:6094 22 41 43 4B 22 20 4D 69 6E 56 65 72 73 69 6F 6E "ACK" MinVersion
+06:49:39: DEBUG: printBuffer:6094 53 75 70 70 6F 72 74 65 64 3D 22 31 22 20 4D 65 Supported="1" Me
+06:49:39: DEBUG: printBuffer:6094 6D 6F 72 79 4E 61 6D 65 3D 22 65 4D 4D 43 22 20 moryName="eMMC" 
+06:49:39: DEBUG: printBuffer:6094 4D 61 78 50 61 79 6C 6F 61 64 53 69 7A 65 46 72 MaxPayloadSizeFr
+06:49:39: DEBUG: printBuffer:6094 6F 6D 54 61 72 67 65 74 49 6E 42 79 74 65 73 3D omTargetInBytes=
+06:49:39: DEBUG: printBuffer:6094 22 34 30 39 36 22 20 4D 61 78 50 61 79 6C 6F 61 "4096" MaxPayloa
+06:49:39: DEBUG: printBuffer:6094 64 53 69 7A 65 54 6F 54 61 72 67 65 74 49 6E 42 dSizeToTargetInB
+06:49:39: DEBUG: printBuffer:6094 79 74 65 73 3D 22 31 30 34 38 35 37 36 22 20 4D ytes="1048576" M
+06:49:39: DEBUG: printBuffer:6094 61 78 50 61 79 6C 6F 61 64 53 69 7A 65 54 6F 54 axPayloadSizeToT
+06:49:39: DEBUG: printBuffer:6094 61 72 67 65 74 49 6E 42 79 74 65 73 53 75 70 70 argetInBytesSupp
+06:49:39: DEBUG: printBuffer:6094 6F 72 74 65 64 3D 22 31 30 34 38 35 37 36 22 20 orted="1048576" 
+06:49:39: DEBUG: printBuffer:6094 4D 61 78 58 4D 4C 53 69 7A 65 49 6E 42 79 74 65 MaxXMLSizeInByte
+06:49:39: DEBUG: printBuffer:6094 73 3D 22 34 30 39 36 22 20 56 65 72 73 69 6F 6E s="4096" Version
+06:49:39: DEBUG: printBuffer:6094 3D 22 31 22 20 54 61 72 67 65 74 4E 61 6D 65 3D ="1" TargetName=
+06:49:39: DEBUG: printBuffer:6094 22 38 39 31 37 22 20 2F 3E 3C 2F 64 61 74 61 3E "8917" /></data>
+06:49:39: DEBUG: printBuffer:6107 
+
+
+06:49:39: DEBUG: XML FILE (99 bytes): CharsInBuffer=400-99=301
+-------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8" ?><data><log value="logbuf@0x0806FE48 fh@0x0806CCB0" /></data>
+-------------------------------------------------------------------------------------------
+
+06:49:39: INFO: TARGET SAID: 'logbuf@0x0806FE48 fh@0x0806CCB0'
+06:49:39: DEBUG: XML FILE (301 bytes): CharsInBuffer=301-301=0
+-------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8" ?><data><response value="ACK" MinVersionSupported="1" MemoryName="eMMC" MaxPayloadSizeFromTargetInBytes="4096" MaxPayloadSizeToTargetInBytes="1048576" MaxPayloadSizeToTargetInBytesSupported="1048576" MaxXMLSizeInBytes="4096" Version="1" TargetName="8917" /></data>
+-------------------------------------------------------------------------------------------
+
+06:49:39: DEBUG: Response was 'ACK'
+06:49:39: INFO: fh.attrs.MaxPayloadSizeToTargetInBytes = 1048576
+06:49:39: INFO: fh.attrs.MaxPayloadSizeToTargetInBytesSupported = 1048576
+06:49:39: DEBUG: Got the ACK for the <configure>
+06:49:39: INFO: Sending <power>
+06:49:39: DEBUG: CHANNEL DATA (P0001) (H00203) (     78 bytes) - HOST TO TARGET -->
+===========================================================================================================
+<?xml version="1.0" encoding="UTF-8" ?>
+<data>
+<power value="reset" />
+</data>
+============================================================================================================
+
+06:49:39: DEBUG: printBuffer:6017 PRETTYPRINT Buffer is 78 bytes
+
+06:49:39: DEBUG: printBuffer:6094 3C 3F 78 6D 6C 20 76 65 72 73 69 6F 6E 3D 22 31 <?xml version="1
+06:49:39: DEBUG: printBuffer:6094 2E 30 22 20 65 6E 63 6F 64 69 6E 67 3D 22 55 54 .0" encoding="UT
+06:49:39: DEBUG: printBuffer:6094 46 2D 38 22 20 3F 3E 0A 3C 64 61 74 61 3E 0A 3C F-8" ?>.<data>.<
+06:49:39: DEBUG: printBuffer:6094 70 6F 77 65 72 20 76 61 6C 75 65 3D 22 72 65 73 power value="res
+06:49:39: DEBUG: printBuffer:6094 65 74 22 20 2F 3E 0A 3C 2F 64 61 74 61 3E       et" />.</data>
+06:49:39: DEBUG: printBuffer:6107 
+
+
+06:49:39: DEBUG: CharsInBuffer=0 Trying to read from USB 4096 bytes
+06:49:39: DEBUG: CHANNEL DATA (76 bytes) <-- TARGET to HOST
+06:49:39: DEBUG: CharsInBuffer = 76
+06:49:39: DEBUG: printBuffer:6017 PRETTYPRINT Buffer is 76 bytes
+
+06:49:39: DEBUG: printBuffer:6094 3C 3F 78 6D 6C 20 76 65 72 73 69 6F 6E 3D 22 31 <?xml version="1
+06:49:39: DEBUG: printBuffer:6094 2E 30 22 20 65 6E 63 6F 64 69 6E 67 3D 22 55 54 .0" encoding="UT
+06:49:39: DEBUG: printBuffer:6094 46 2D 38 22 20 3F 3E 3C 64 61 74 61 3E 3C 72 65 F-8" ?><data><re
+06:49:39: DEBUG: printBuffer:6094 73 70 6F 6E 73 65 20 76 61 6C 75 65 3D 22 41 43 sponse value="AC
+06:49:39: DEBUG: printBuffer:6094 4B 22 20 2F 3E 3C 2F 64 61 74 61 3E             K" /></data>
+06:49:39: DEBUG: printBuffer:6107 
+
+
+06:49:39: DEBUG: XML FILE (76 bytes): CharsInBuffer=76-76=0
+-------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8" ?><data><response value="ACK" /></data>
+-------------------------------------------------------------------------------------------
+
+06:49:39: DEBUG: Response was 'ACK'
+06:49:39: DEBUG: Got the ACK
+06:49:39: INFO: ==============================================================
+06:49:39: INFO: Files used and their paths
+06:49:39: INFO:   1 'C:\Users\email\source\repos\Qualcomm Tools GUI\Qualcomm Tools GUI\bin\Debug\Data\Process\port_trace.txt'
+06:49:39: INFO:   2 'C:\Users\email\source\repos\Qualcomm Tools GUI\Qualcomm Tools GUI\bin\Debug\Data\Process\Reboot.xml'
+06:49:39: INFO:   3 'C:\Users\email\source\repos\Qualcomm Tools GUI\Qualcomm Tools GUI\bin\Debug\Data\Process\command_trace.txt'
+06:49:39: INFO:      _             (done)
+06:49:39: INFO:     | |                 
+06:49:39: INFO:   __| | ___  _ __   ___ 
+06:49:39: INFO:  / _` |/ _ \| '_ \ / _ \
+06:49:39: INFO: | (_| | (_) | | | |  __/
+06:49:39: INFO:  \__,_|\___/|_| |_|\___|
+06:49:39: INFO: {All Finished Successfully}
+
+06:49:39: INFO: Overall to target  0.078 seconds (0.00 Bps)

@@ -298,7 +298,7 @@ Partial Class Main
         Me.MaximizeBox = False
         Me.Name = "Main"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Qualcomm Tool GUI"
+        Me.Text = "Qualcomm Tool GUI VB.Net"
         CType(Me.DataView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
