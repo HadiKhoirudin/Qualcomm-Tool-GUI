@@ -902,7 +902,7 @@ Public Class Main
 
                         Dim folder = Application.StartupPath & "\Data\Autoloader"
                         Dim string_to_find = MSM_HW_ID & "_" & OEM_PK_HASH
-                        Console.WriteLine(string_to_find)
+
                         Dim di = New DirectoryInfo(folder)
 
                         Dim results = di.EnumerateFileSystemInfos("*", SearchOption.AllDirectories).Where(Function(i) i.Name.IndexOf(string_to_find, StringComparison.InvariantCultureIgnoreCase) >= 0)
@@ -926,9 +926,11 @@ Public Class Main
                 End If
                 num1 = num1 + 1
             End While
+            Delay(1)
             emmcdl_cmd(String.Concat({"emmcdl.exe -p COM", PortQcom, " -f ", """" & txtloader.Text & """", " -info "}))
         Else
             RichLogs("Device Already in Programmer Mode...", Color.White, True, True)
+            Delay(1)
             emmcdl_cmd(String.Concat({"emmcdl.exe -p COM", PortQcom, " -f ", """" & txtloader.Text & """", " -info "}))
         End If
     End Sub
