@@ -908,12 +908,6 @@ Public Class Main
                         Dim results = di.EnumerateFileSystemInfos("*", SearchOption.AllDirectories).Where(Function(i) i.Name.IndexOf(string_to_find, StringComparison.InvariantCultureIgnoreCase) >= 0)
                         Do
                             For Each r In results
-
-                                If TypeOf r Is DirectoryInfo Then
-                                    Console.WriteLine("Directory: {0}", r.Name)
-                                Else
-                                    Console.WriteLine("File: {0}", r.FullName)
-                                End If
                                 If r.Name <> String.Empty Then
                                     txtloader.Invoke(New Action(Sub()
                                                                     txtloader.Text = r.FullName
