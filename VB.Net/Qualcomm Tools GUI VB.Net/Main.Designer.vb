@@ -49,6 +49,7 @@ Partial Class Main
         Me.cblistdataview = New System.Windows.Forms.CheckBox()
         Me.cbreboot = New System.Windows.Forms.CheckBox()
         Me.btnerase = New System.Windows.Forms.Button()
+        Me.CheckBoxAutoLoader = New System.Windows.Forms.CheckBox()
         CType(Me.DataView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -136,7 +137,7 @@ Partial Class Main
         '
         Me.txtloader.Location = New System.Drawing.Point(93, 334)
         Me.txtloader.Name = "txtloader"
-        Me.txtloader.Size = New System.Drawing.Size(551, 20)
+        Me.txtloader.Size = New System.Drawing.Size(454, 20)
         Me.txtloader.TabIndex = 10
         '
         'btnbackup
@@ -270,11 +271,22 @@ Partial Class Main
         Me.btnerase.Text = "Erase"
         Me.btnerase.UseVisualStyleBackColor = True
         '
+        'CheckBoxAutoLoader
+        '
+        Me.CheckBoxAutoLoader.AutoSize = True
+        Me.CheckBoxAutoLoader.Location = New System.Drawing.Point(560, 336)
+        Me.CheckBoxAutoLoader.Name = "CheckBoxAutoLoader"
+        Me.CheckBoxAutoLoader.Size = New System.Drawing.Size(84, 17)
+        Me.CheckBoxAutoLoader.TabIndex = 21
+        Me.CheckBoxAutoLoader.Text = "Auto Loader"
+        Me.CheckBoxAutoLoader.UseVisualStyleBackColor = True
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1051, 417)
+        Me.Controls.Add(Me.CheckBoxAutoLoader)
         Me.Controls.Add(Me.btnerase)
         Me.Controls.Add(Me.cbreboot)
         Me.Controls.Add(Me.cblistdataview)
@@ -331,4 +343,5 @@ Partial Class Main
     Friend WithEvents cblistdataview As CheckBox
     Friend WithEvents cbreboot As CheckBox
     Friend WithEvents btnerase As Button
+    Friend WithEvents CheckBoxAutoLoader As CheckBox
 End Class

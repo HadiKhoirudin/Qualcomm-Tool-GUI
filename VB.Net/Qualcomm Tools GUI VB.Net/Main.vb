@@ -19,6 +19,8 @@ Public Class Main
     Public xmlpatch As String = ""
     Public totalchecked As Integer = 0
     Public tot As Integer = 0
+    Public MSM_HW_ID As String = ""
+    Public OEM_PK_HASH As String = ""
     Public WithEvents QcomWorkerFlash As BackgroundWorker
 #Region "UI"
     Private Sub RichTextBox_TextChanged(sender As Object, e As EventArgs) Handles RichTextBox.TextChanged
@@ -72,6 +74,7 @@ Public Class Main
         RichLogs("► Websites  " & vbTab & ":  https://facebook.com/f.hadikhoir/", Color.DarkOrange, True, False)
         RichLogs("  ==========================================", Color.DarkOrange, True, True)
         RichLogs("", Color.DarkOrange, True, True)
+
     End Sub
     Public Sub ProcessBar1(Process As Long, total As Long)
         ProgressBar1.Invoke(New Action(Sub()
@@ -127,9 +130,19 @@ Public Class Main
     End Sub
 
     Private Sub btngpt_Click(sender As Object, e As EventArgs) Handles btngpt.Click
-        If txtloader.Text = "" Then
-            MsgBox("Please select / browse loader file.")
+        Dim flags As Boolean = False
+
+        If CheckBoxAutoLoader.Checked Then
+            flags = True
         Else
+            If txtloader.Text = "" Then
+                MsgBox("Please select / browse loader file.")
+            Else
+                flags = True
+            End If
+        End If
+
+        If flags Then
             WaktuCari = 60
             RichTextBox.Clear()
             CariPorts()
@@ -151,36 +164,46 @@ Public Class Main
     End Sub
 
     Private Sub btnbackup_Click(sender As Object, e As EventArgs) Handles btnbackup.Click
-        If txtloader.Text = "" Then
-            MsgBox("Please select / browse loader file.")
+        Dim flags As Boolean = False
+
+        If CheckBoxAutoLoader.Checked Then
+            flags = True
         Else
+            If txtloader.Text = "" Then
+                MsgBox("Please select / browse loader file.")
+            Else
+                flags = True
+            End If
+        End If
+
+        If flags Then
             WaktuCari = 60
             RichTextBox.Clear()
 
             Dim flag As Boolean
-                For Each item As DataGridViewRow In DataView.Rows
-                    If item.Cells(0).Value = True Then
-                        flag = True
-                    End If
-                Next
-                If flag Then
-                    Dim folderBrowserDialog As New FolderBrowserDialog() With
+            For Each item As DataGridViewRow In DataView.Rows
+                If item.Cells(0).Value = True Then
+                    flag = True
+                End If
+            Next
+            If flag Then
+                Dim folderBrowserDialog As New FolderBrowserDialog() With
         {
             .ShowNewFolderButton = True
         }
                 If (folderBrowserDialog.ShowDialog() = DialogResult.OK) Then
                     CariPorts()
                     If PortQcom > 0 Then
-                    foldersave = folderBrowserDialog.SelectedPath
-                    StringXml = ""
-                    StringXml = String.Concat(StringXml, "<?xml version=""1.0"" ?>" & vbCrLf & "")
-                    StringXml = String.Concat(StringXml, "<data>" & vbCrLf & "")
-                    totalchecked = 0
-                    For Each item As DataGridViewRow In DataView.Rows
-                        If item.Cells(DataView.Columns(0).Index).Value = True Then
-                            totalchecked += 1
+                        foldersave = folderBrowserDialog.SelectedPath
+                        StringXml = ""
+                        StringXml = String.Concat(StringXml, "<?xml version=""1.0"" ?>" & vbCrLf & "")
+                        StringXml = String.Concat(StringXml, "<data>" & vbCrLf & "")
+                        totalchecked = 0
+                        For Each item As DataGridViewRow In DataView.Rows
+                            If item.Cells(DataView.Columns(0).Index).Value = True Then
+                                totalchecked += 1
 
-                            StringXml = String.Concat(StringXml, String.Format("<read SECTOR_SIZE_IN_BYTES=""{0}"" file_sector_offset=""0"" filename=""{1}"" label=""{2}"" num_partition_sectors=""{3}"" physical_partition_number=""{4}"" start_sector=""{5}""/>", New Object() {
+                                StringXml = String.Concat(StringXml, String.Format("<read SECTOR_SIZE_IN_BYTES=""{0}"" file_sector_offset=""0"" filename=""{1}"" label=""{2}"" num_partition_sectors=""{3}"" physical_partition_number=""{4}"" start_sector=""{5}""/>", New Object() {
                                                                                            SectorSize, '512, 4096
                                                                                            item.Cells(DataView.Columns(6).Index).Value,
                                                                                            item.Cells(DataView.Columns(3).Index).Value,
@@ -190,19 +213,19 @@ Public Class Main
                                                                                            }),
                                                                   "" & vbCrLf & "")
 
-                        End If
-                    Next
-                    StringXml = String.Concat(StringXml, "</data>")
+                            End If
+                        Next
+                        StringXml = String.Concat(StringXml, "</data>")
 
-                    QcomWorkerFlash = New BackgroundWorker()
-                    QcomWorkerFlash.WorkerSupportsCancellation = True
-                    AddHandler QcomWorkerFlash.DoWork, AddressOf XmlRead
-                    AddHandler QcomWorkerFlash.RunWorkerCompleted, AddressOf AllIsDone
-                    QcomWorkerFlash.RunWorkerAsync()
-                    QcomWorkerFlash.Dispose()
+                        QcomWorkerFlash = New BackgroundWorker()
+                        QcomWorkerFlash.WorkerSupportsCancellation = True
+                        AddHandler QcomWorkerFlash.DoWork, AddressOf XmlRead
+                        AddHandler QcomWorkerFlash.RunWorkerCompleted, AddressOf AllIsDone
+                        QcomWorkerFlash.RunWorkerAsync()
+                        QcomWorkerFlash.Dispose()
 
+                    End If
                 End If
-            End If
             End If
         End If
     End Sub
@@ -272,9 +295,19 @@ Public Class Main
         End Try
     End Sub
     Private Sub btnflash_Click(sender As Object, e As EventArgs) Handles btnflash.Click
-        If txtloader.Text = "" Then
-            MsgBox("Please select / browse loader file.")
+        Dim flags As Boolean = False
+
+        If CheckBoxAutoLoader.Checked Then
+            flags = True
         Else
+            If txtloader.Text = "" Then
+                MsgBox("Please select / browse loader file.")
+            Else
+                flags = True
+            End If
+        End If
+
+        If flags Then
             WaktuCari = 60
             RichTextBox.Clear()
 
@@ -412,9 +445,19 @@ Public Class Main
     End Sub
 
     Private Sub btnerase_Click(sender As Object, e As EventArgs) Handles btnerase.Click
-        If txtloader.Text = "" Then
-            MsgBox("Please select / browse loader file.")
+        Dim flags As Boolean = False
+
+        If CheckBoxAutoLoader.Checked Then
+            flags = True
         Else
+            If txtloader.Text = "" Then
+                MsgBox("Please select / browse loader file.")
+            Else
+                flags = True
+            End If
+        End If
+
+        If flags Then
             WaktuCari = 60
             RichTextBox.Clear()
 
@@ -818,6 +861,8 @@ Public Class Main
                     End If
                     If (str1.Contains("MSM_HW_ID:")) Then
                         Logs(String.Concat("  MSM_HW_ID : ", CheckMSM(str1)), Color.FromArgb(224, 224, 224), str1.Replace("MSM_HW_ID:", ""), Color.FromArgb(30, 136, 229))
+                        MSM_HW_ID = str1.Replace("MSM_HW_ID:", "").Substring(3)
+
                     End If
                     If (str1.Contains("OEM_PK_HASH:")) Then
                         textBox1.Text = str1
@@ -828,9 +873,10 @@ Public Class Main
                         Delay(1)
                         RichLogs("  PK_HASH[0] : ", Color.FromArgb(224, 224, 224), True, False)
                         RichLogs(textBox1.Text, Color.Orange, False, True)
-                        textBox1.Text = str3
+                        textBox1.Text = str3.Substring(3)
                         RichLogs("  PK_HASH[1] : ", Color.FromArgb(224, 224, 224), True, False)
                         RichLogs(textBox1.Text, Color.Orange, False, False)
+                        OEM_PK_HASH = textBox1.Text.Substring(0, 16)
                     End If
                     If (str1.Contains("SBL SW Version:")) Then
                         Delay(0.6)
@@ -838,6 +884,44 @@ Public Class Main
                         RichLogs(" ", Color.White, False, True)
                     Else
                         RichLogs(" ", Color.White, False, True)
+                    End If
+                    If CheckBoxAutoLoader.Checked Then
+                        If MSM_HW_ID.Length < 16 Then
+                            Dim Str As String
+                            Do
+                                Dim sb As New Text.StringBuilder()
+                                Str = sb.Append("0").ToString()
+
+                                MSM_HW_ID = MSM_HW_ID & Str
+
+                                If MSM_HW_ID.Length = 16 Then
+                                    Exit Do
+                                End If
+                            Loop
+                        End If
+
+                        Dim folder = Application.StartupPath & "\Data\Autoloader"
+                        Dim string_to_find = MSM_HW_ID & "_" & OEM_PK_HASH
+                        Console.WriteLine(string_to_find)
+                        Dim di = New DirectoryInfo(folder)
+
+                        Dim results = di.EnumerateFileSystemInfos("*", SearchOption.AllDirectories).Where(Function(i) i.Name.IndexOf(string_to_find, StringComparison.InvariantCultureIgnoreCase) >= 0)
+                        Do
+                            For Each r In results
+
+                                If TypeOf r Is DirectoryInfo Then
+                                    Console.WriteLine("Directory: {0}", r.Name)
+                                Else
+                                    Console.WriteLine("File: {0}", r.FullName)
+                                End If
+                                If r.Name <> String.Empty Then
+                                    txtloader.Invoke(New Action(Sub()
+                                                                    txtloader.Text = r.FullName
+                                                                End Sub))
+                                    Exit Do
+                                End If
+                            Next
+                        Loop
                     End If
                 End If
                 num1 = num1 + 1
@@ -1007,10 +1091,18 @@ Public Class Main
                                                                Dim str As String = text.Replace(": DEBUG: FileSizeNumSectorsLeft =", "").Replace(" ", "").Replace("-", "")
                                                                str = str.Substring(str.IndexOf(str.Substring(8))).Replace(":", "")
 
+
                                                                fileOffset += str
                                                                totalprogress += NumPartition
-                                                               Progress.Maximum = fileOffset * 100L
-                                                               Progress.Value = CInt(Math.Round(fileOffset * 100L / totalprogress))
+
+                                                               If fileOffset > 0 Then
+                                                                   Progress.Maximum = fileOffset * 100L
+                                                                   Progress.Value = CInt(Math.Round(fileOffset * 100L / totalprogress))
+                                                               Else
+                                                                   Progress.Maximum = 100
+                                                                   Progress.Value = 0
+                                                               End If
+
                                                                now = Progress.Value
 
                                                                If Progress.Value > 0 AndAlso resultprogress < 99 Then
@@ -1202,6 +1294,16 @@ Public Class Main
         End Using
         Return flag
     End Function
+
+    Private Sub CheckBoxAutoLoader_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxAutoLoader.CheckedChanged
+        If CheckBoxAutoLoader.Checked Then
+            txtloader.Text = ""
+            btnloader.Enabled = False
+        Else
+            txtloader.Text = ""
+            btnloader.Enabled = True
+        End If
+    End Sub
 
 
 #End Region
