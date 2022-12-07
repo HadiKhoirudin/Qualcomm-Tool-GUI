@@ -7,7 +7,6 @@ Imports System.ComponentModel
 Public Class Main
     Public Typememory As String = "emmc"
     Public SectorSize As String = "512"
-
     Public bool_1 As Boolean
     Public textBox1 As New TextBox
     Public textBox11 As New TextBox
@@ -73,7 +72,7 @@ Public Class Main
         RichLogs("  ==========================================", Color.DarkOrange, True, True)
         RichLogs("► Websites  " & vbTab & ":  https://facebook.com/f.hadikhoir/", Color.DarkOrange, True, False)
         RichLogs("  ==========================================", Color.DarkOrange, True, True)
-        RichLogs("", Color.DarkOrange, True, True)
+        RichLogs(" ", Color.DarkOrange, True, True)
 
     End Sub
     Public Sub ProcessBar1(Process As Long, total As Long)

@@ -1,10 +1,10 @@
 ﻿[*.cs]
 
+# CS0649: Field 'Main.components' is never assigned to, and will always have its default value null
+dotnet_diagnostic.CS0649.severity = none
+
 # CS1591: Missing XML comment for publicly visible type or member
 dotnet_diagnostic.CS1591.severity = none
 
-# CS0169: The field 'Main.components' is never used
-dotnet_diagnostic.CS0169.severity = none
-
-# CS0649: Field 'Main.components' is never assigned to, and will always have its default value null
-dotnet_diagnostic.CS0649.severity = none
+# CS0219: Variable is assigned but its value is never used
+dotnet_diagnostic.CS0219.severity = none
